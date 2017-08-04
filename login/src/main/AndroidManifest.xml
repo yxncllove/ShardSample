@@ -1,0 +1,62 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.huadin.login">
+
+    <application android:allowBackup="true"
+                 android:label="@string/app_name"
+                 android:supportsRtl="true">
+
+        <!--新浪-->
+        <activity
+            android:name=".WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--微信-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!--QQ-->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1105901253" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <!--分享编辑页-->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:theme="@style/Theme.UMDefault"
+            android:excludeFromRecents="true"
+            />
+
+        <!--友盟-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="595c58aef5ade46835000c1a">
+        </meta-data>
+
+    </application>
+
+</manifest>
